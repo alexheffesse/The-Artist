@@ -13,3 +13,5 @@
     "initai-node": "~0.0.7"
   }
 }
+$ nvm install 4.3.2
+$ nvm use 4.3.2
