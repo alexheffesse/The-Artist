@@ -1,17 +1,16 @@
 {
-  "name": "The-Artist",
-  "version": "0.0.0",
-  "description": "Artist",
-  "main": "behavior/scripts/index.js",
-  "scripts": {
-    "start": "initai-dev-server"
-  },
-  "author": "<my-name> <<my-email-address>>",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "initai-dev-server": "^0.4.8",
-    "initai-node": "~0.0.7"
-"$ nvm install 4.3.2"
-"$ nvm use 4.3.2"
-  }
+	"name": "The-Artist",
+	"version": "0.0.0",
+	"description": "Artist",
+	"main": "behavior/scripts/index.js",
+	"scripts": {
+		"start": "initai-dev-server"
+	},
+	"author": "<my-name> <<my-email-address>>",
+	"license": "UNLICENSED",
+	"dependencies": {
+		"initai-dev-server": "^0.4.8",
+		"initai-node": "~0.0.7",
+		"$ nvm install 4.3.2": "$ nvm use 4.3.2"
+	}
 }
