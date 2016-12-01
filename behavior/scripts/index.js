@@ -1,6 +1,6 @@
 'use strict'
 
-exports.handle = (client) => {
+exports.handle = function handle(client) => {
   // Create steps
   const sayHello = client.createStep({
     satisfied() {
@@ -28,14 +28,35 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('greeting')
+      client.addResponse('apology/untrained')
       client.done()
     }
   })
 
+  const handleGreeting = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addTextResponse('What would you like to know?')
+      client.done()
+    }
+  })
+
+  const handleGoodbye = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addTextResponse('Enough. To continue the conversation, please send questions to alex.heffesse@gmail.com')
+      client.done()
+    }
+  })
+  
   client.runFlow({
     classifications: {
-      // map inbound message classifications to names of streams
     goodbye: 'goodbye',
     greeting: 'greeting',
     },
@@ -43,7 +64,6 @@ exports.handle = (client) => {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
-      // Add a Stream for goodbye and assign it a Step
       goodbye: handleGoodbye,
       greeting: handleGreeting,
       main: 'onboarding',
@@ -51,4 +71,14 @@ exports.handle = (client) => {
       end: [untrained],
     },
   })
+  const handleGoodbye = client.createStep({
+  satisfied() {
+    return false
+  },
+
+  prompt() {
+    client.addResponse('goodbye')
+    client.done()
+  }
+})
 }
