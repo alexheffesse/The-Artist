@@ -71,14 +71,4 @@ exports.handle = function handle(client) => {
       end: [untrained],
     },
   })
-  const handleGoodbye = client.createStep({
-  satisfied() {
-    return false
-  },
-
-  prompt() {
-    client.addResponse('goodbye')
-    client.done()
-  }
-})
 }
