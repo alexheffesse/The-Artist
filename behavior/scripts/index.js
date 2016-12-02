@@ -1,7 +1,11 @@
 'use strict'
 
+<<<<<<< Updated upstream
 exports.handle = function handle(client) => {
   // Create steps
+=======
+exports.handle = function handle(client) {
+>>>>>>> Stashed changes
   const sayHello = client.createStep({
     satisfied() {
       return Boolean(client.getConversationState().helloSent)
@@ -39,7 +43,11 @@ exports.handle = function handle(client) => {
     },
 
     prompt() {
+<<<<<<< Updated upstream
       client.addTextResponse('What would you like to know?')
+=======
+      client.addTextResponse('Hey! Do you like contemporary art?')
+>>>>>>> Stashed changes
       client.done()
     }
   })
@@ -54,7 +62,11 @@ exports.handle = function handle(client) => {
       client.done()
     }
   })
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   client.runFlow({
     classifications: {
     goodbye: 'goodbye',
