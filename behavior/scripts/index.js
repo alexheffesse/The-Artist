@@ -100,11 +100,6 @@ exports.handle = function handle(client) {
     goodbye: 'goodbye',
     greeting: 'greeting',
     },
-    streams: {
-    main: 'hi',
-    hi: [sayHello],
-    getWeather: [collectCity, provideWeather],
-    }
 })
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
@@ -115,6 +110,10 @@ exports.handle = function handle(client) {
       main: 'onboarding',
       onboarding: [sayHello],
       end: [untrained],
+      main: 'hi',
+      hi: [sayHello],
+      getWeather: [collectCity, provideWeather],
+      }
     },
   })
 }
