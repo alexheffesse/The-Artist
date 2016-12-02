@@ -1,6 +1,15 @@
 'use strict'
 
 <<<<<<< Updated upstream
+  const firstOfEntityRole = function(message, entity, role) {
+  role = role || 'generic';
+
+  const slots = message.slots
+  const entityValues = message.slots[entity]
+  const valsForRole = entityValues ? entityValues.values_by_role[role] : null
+
+  return valsForRole ? valsForRole[0] : null
+}
 exports.handle = function handle(client) => {
   // Create steps
 =======
@@ -59,7 +68,12 @@ exports.handle = function handle(client) {
       },
 
       prompt() {
-        // Need to provide weather
+        let weatherData = {
+      temperature: 69,
+      condition: 'doom',
+      city: client.getConversationState().weatherCity.value,
+    }
+        client.addResponse('app:response:name:provide_weather/current', weatherData)
         client.done()
       },
     })
